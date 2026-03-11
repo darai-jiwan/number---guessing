@@ -1,0 +1,45 @@
+import random 
+
+def playgame(count, start, end):
+    chance = count 
+    ran = random.randint(start,end)
+    print(f"You got total {chance} chance to guess the number, So do your best.")
+    while chance >0:
+        try:
+            player_num = int(input(f"Choose a number between {start}-{end}."))
+            if player_num == ran:
+                print(f"!!! Correct guess!!! Congratualtion")
+                return
+            elif player_num > ran:
+                print("Lower")
+                chance -=1
+                print(f"You have {chance} chance left.")
+            elif player_num < ran:
+                print("Higher")
+                chance -=1
+                print(f"You have {chance} chance left.")  
+        except ValueError:
+            print("Invalid Input Please Enter a valid number.")
+            continue
+        
+    print(f"Game over. The correct number is {ran}.")
+
+def difficulty(level):
+    while True:
+        if level == "easy":
+            diff = playgame(5,1,10)
+            break
+        elif level == "medium":
+            diff = playgame(7,1,50)
+            break
+        elif level == "hard":
+            diff = playgame(10,1,100)
+            break
+        else: 
+            print("Incorrect input. Choose a correct input.")
+            level = input("Enter your difficulty (easy/medium/hard):").lower()
+
+
+choose = input("Enter your difficulty:").lower()
+difficulty(choose)     
+    

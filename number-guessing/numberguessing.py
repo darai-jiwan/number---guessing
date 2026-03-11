@@ -39,7 +39,6 @@ while game == True :
                 print("lower")
                 count -=1
 
-
             else: 
                 print("Enter a interger value")
         print(f"The correct number is {number}")
