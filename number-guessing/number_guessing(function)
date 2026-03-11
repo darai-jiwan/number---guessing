@@ -5,6 +5,9 @@ def playgame(count, start, end):
     ran = random.randint(start,end)
     print(f"You got total {chance} chance to guess the number, So do your best.")
     while chance >0:
+        
+        # using try except to handle error if a user provide wrong input inplace of interger input 
+
         try:
             player_num = int(input(f"Choose a number between {start}-{end}."))
             if player_num == ran:
@@ -36,9 +39,10 @@ def difficulty(level):
             diff = playgame(10,1,100)
             break
         else: 
+            # if the wrong input is given, this block will execute
             print("Incorrect input. Choose a correct input.")
             level = input("Enter your difficulty (easy/medium/hard):").lower()
-
+        
 
 choose = input("Enter your difficulty:").lower()
 difficulty(choose)     
